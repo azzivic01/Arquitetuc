@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --color-tema-bg: var(--tema-color-bg);
+  --color-tema-surface: var(--tema-color-surface);
+  --color-tema-border: var(--tema-color-border);
+  --color-tema-text: var(--tema-color-text);
+  --color-tema-muted: var(--tema-color-text-muted);
+  --color-tema-accent: var(--tema-color-accent);
+  --color-tema-accent-ink: var(--tema-color-accent-ink);
+  --color-tema-on-accent: var(--tema-color-on-accent);
+
+  --radius-tema: var(--tema-radius);
+  --radius-tema-lg: var(--tema-radius-lg);
+}
+
+:root {
+  /* Cores obrigatórias do tema */
+  --tema-color-bg: #F7F9F8;
+  --tema-color-surface: #FFFFFF;
+  --tema-color-border: #D9E2DE;
+  --tema-color-text: #12211D;
+  --tema-color-text-muted: #53635D;
+  --tema-color-accent: #1F6F5C;
+  --tema-color-accent-ink: #1F6F5C;
+  --tema-color-on-accent: #F7F9F8;
+
+  /* Fontes do tema */
+  --tema-font-display: var(--font-serif);
+  --tema-font-body: var(--font-sans);
+  --tema-font-label: var(--font-sans);
+
+  /* Formas do tema */
+  --tema-radius: 14px;
+  --tema-radius-lg: 28px;
+
+  /* Movimento do tema */
+  --motion-duration-fast: 150ms;
+  --motion-duration-base: 300ms;
+  --motion-duration-slow: 700ms;
+  --motion-duration-cinematic: 1000ms;
+  --motion-ease-base: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-stagger: 80ms;
+}
+
+/* Reset e base tipográfica */
+html {
+  background-color: var(--tema-color-bg);
+  color: var(--tema-color-text);
+  font-family: var(--tema-font-body);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--tema-color-bg);
+  color: var(--tema-color-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Foco visível acessível padronizado */
+:focus-visible {
+  outline: 2px solid var(--tema-color-accent-ink);
+  outline-offset: 2px;
+}
+
+/* Utilitários tipográficos específicos do tema */
+.font-display {
+  font-family: var(--tema-font-display);
+}
+
+.font-body {
+  font-family: var(--tema-font-body);
+}
+
+.font-label {
+  font-family: var(--tema-font-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Utilitários de tema */
+.bg-theme-bg {
+  background-color: var(--tema-color-bg);
+}
+
+.bg-theme-surface {
+  background-color: var(--tema-color-surface);
+}
+
+.border-theme {
+  border-color: var(--tema-color-border);
+}
+
+.text-theme-primary {
+  color: var(--tema-color-text);
+}
+
+.text-theme-muted {
+  color: var(--tema-color-text-muted);
+}
+
+.text-theme-accent {
+  color: var(--tema-color-accent-ink);
+}
+
+.bg-theme-accent {
+  background-color: var(--tema-color-accent);
+  color: var(--tema-color-on-accent);
+}
+
+.rounded-theme {
+  border-radius: var(--tema-radius);
+}
+
+.rounded-theme-lg {
+  border-radius: var(--tema-radius-lg);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--tema-color-accent);
+  color: var(--tema-color-on-accent);
+  border-radius: var(--tema-radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: transform var(--motion-duration-fast) var(--motion-ease-base);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  transform: translateY(0);
+}
